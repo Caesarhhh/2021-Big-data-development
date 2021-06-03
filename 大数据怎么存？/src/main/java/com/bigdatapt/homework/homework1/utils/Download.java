@@ -18,6 +18,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Download {
+    public static void makeDir(File dir) {
+        if(! dir.getParentFile().exists()) {
+            makeDir(dir.getParentFile());
+        }
+        dir.mkdir();
+    }
+
+    public static void checkMkdir(String path){
+        String filepath=S3Config.baseFilePath+path;
+        if(path.indexOf('/')==-1){
+            return;
+        }
+        filepath=filepath.substring(0,filepath.lastIndexOf('/'));
+        File file=new File(filepath);
+        if(!file.exists()){
+            makeDir(file);
+        }
+    }
     public static void DownloadByPath(String path){
         AmazonS3 s3=AmazonSingleton.getInstance().getS3();
 
@@ -29,6 +47,7 @@ public class Download {
         S3ObjectInputStream s3is = null;
         FileOutputStream fos = null;
         try {
+            checkMkdir(path);
             S3Object o = s3.getObject(S3Config.bucketName, keyName);
             s3is = o.getObjectContent();
             fos = new FileOutputStream(new File(filePath));
@@ -64,6 +83,7 @@ public class Download {
         FileOutputStream fos = null;
 
         try {
+            checkMkdir(path);
             ObjectMetadata oMetaData = s3.getObjectMetadata(S3Config.bucketName, keyName);
             final long contentLength = oMetaData.getContentLength();
             final GetObjectRequest downloadRequest =
@@ -133,6 +153,6 @@ public class Download {
     }
 
     public static void main(String[] args) {
-        DownloadBigData("BOOK.pdf",1);
+        checkMkdir("777/555/888/999/txt.txt");
     }
 }

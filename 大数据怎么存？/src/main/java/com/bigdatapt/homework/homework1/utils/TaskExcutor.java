@@ -46,7 +46,7 @@ public class TaskExcutor {
             caches.removeAheadTask();
             cacheData.saveToCache(caches,S3Config.cachePath);
         }
-        System.out.println("excutor执行完成");
+        System.out.println("taskExcutor执行完成");
     }
 
     public static void runfromCache(){

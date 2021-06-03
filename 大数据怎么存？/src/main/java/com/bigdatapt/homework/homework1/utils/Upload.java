@@ -68,6 +68,7 @@ public class Upload {
         String uploadId = null;
 
         try {
+            System.out.format("Uploading *largefile* %s to S3 bucket %s...\n", keyName, S3Config.bucketName);
             InitiateMultipartUploadResult initiateMultipartUploadResult;
             if (currentPos > 1 && caches != null && caches.getMultipartUploadResult() != null) {
                 initiateMultipartUploadResult = caches.getMultipartUploadResult();

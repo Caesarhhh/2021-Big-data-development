@@ -3,7 +3,7 @@ package com.bigdatapt.homework.homework1.model;
 import java.io.Serializable;
 
 public class TaskDetail implements Serializable {
-    private int JobType;//0下载，1上传
+    private int JobType;//0下载，1上传,2删除
     private int DataType;//0小数据，1大数据
     private String path;//数据路径信息
     private int currentpos;//对于大任务的分片当前执行位置，小任务无意义
