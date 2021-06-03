@@ -21,7 +21,7 @@ windows，jdk13
 
 #### 总体结构和模块外部设计
 
-![image-20210603171503083](C:\Users\yujkl\AppData\Roaming\Typora\typora-user-images\image-20210603171503083.png)
+<img src="https://caelog.oss-cn-beijing.aliyuncs.com/userdata/4/2021/06/03/18766b98d722456f8f08d1032a14d7b8image-20210603171503083.png" width="600px" />
 
 #### 模块功能
 
