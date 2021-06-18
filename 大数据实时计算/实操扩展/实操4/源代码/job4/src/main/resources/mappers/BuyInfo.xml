@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bigdata.week3.job4.Mapper.BuyInfoMapper">
+    <select id="listBuyInfos" resultType="com.bigdata.week3.job4.Model.BuyInfo">
+		select * from mn_buy_ticket
+	</select>
+	<insert id="addBuyInfos" parameterType="map">
+        create table ${table} if not exists ;
+		insert into ${table} (username,buy_time,buy_address,origin,destination) values(#{username},#{buy_time},#{buy_address},#{origin},#{destination});
+	</insert>
+</mapper>

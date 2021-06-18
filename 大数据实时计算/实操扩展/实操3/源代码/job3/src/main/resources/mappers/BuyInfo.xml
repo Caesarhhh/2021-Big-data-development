@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bigdata.week3.job3.Mapper.BuyInfoMapper">
+    <select id="listBuyInfos" resultType="com.bigdata.week3.job3.Model.BuyInfo">
+		select * from mn_buy_ticket
+	</select>
+</mapper>
