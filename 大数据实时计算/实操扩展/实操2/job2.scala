@@ -28,8 +28,8 @@ object job2 {
     val inputKafkaStream = env.addSource(kafkaConsumer)
     var mapw:Map[String,Int]=Map()
     inputKafkaStream.map(x => {
-      val cityt=x.split(",")(2)
-      val city=cityt.substring(10,cityt.length-1)
+      val cityt=x.split(",")(3)
+      val city=cityt.substring(15,cityt.length-1)
       if(mapw.contains(city)){
         val t=mapw(city)+1
         mapw+=(city -> t)
